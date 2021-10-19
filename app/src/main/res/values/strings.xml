@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Room</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="title_room">Room</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_bed">Bed</string>
+    <string name="title_desk">Desk</string>
+    <string name="modo1">SOLID</string>
+    <string name="modo2">FADE</string>
+    <string name="modo3">RAINBOW</string>
+    <string name="modo4">CHANGE COLOR</string>
+    <string name="modo5">FADE COLOR</string>
+</resources>
