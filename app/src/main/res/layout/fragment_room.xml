@@ -1,25 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:padding="16dp"
-    tools:context=".ui.RoomFragment">
+    tools:context=".ui.room.RoomFragment">
 
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.victor.co.room.ui.room.RoomViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="16dp">
 
     <ImageView
         android:id="@+id/onOff"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:src="@drawable/ic_dashboard_black_24dp"
+        android:src="@drawable/ic_off"
+        android:onClick="@{()->viewModel.onClickOnOff()}"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.95"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.01999998"
-        app:srcCompat="@drawable/ic_off" />
+        app:layout_constraintVertical_bias="0.01999998" />
 
     <ImageView
         android:id="@+id/sync"
@@ -42,17 +50,17 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0" />
 
-    <ImageButton
-        android:id="@+id/buttonWhite"
-        android:layout_width="45dp"
-        android:layout_height="45dp"
-        android:src="@drawable/ic_cuadrado_blanco"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/buttonBlue"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/colorPicker"
-        app:layout_constraintVertical_bias="0.0" />
+        <ImageButton
+            android:id="@+id/buttonWhite"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:src="@drawable/ic_cuadrado_blanco"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/buttonBlue"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/colorPicker"
+            app:layout_constraintVertical_bias="0.0" />
 
     <ImageButton
         android:id="@+id/buttonBlue"
@@ -272,7 +280,7 @@
         android:ems="10"
         android:enabled="false"
         android:inputType="none"
-        android:text="--:--"
+        android:text="@{viewModel.autoOffHour}"
         app:layout_constraintBottom_toBottomOf="@+id/checkBoxAutoOff"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -308,13 +316,17 @@
         app:layout_constraintStart_toEndOf="@+id/buttonHourPicker"
         app:layout_constraintTop_toTopOf="@+id/buttonHourPicker" />
 
-    <CheckBox
-        android:id="@+id/checkBoxAutoOff"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView"
-        app:layout_constraintVertical_bias="0.0" />
+        <CheckBox
+            android:id="@+id/checkBoxAutoOff"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="@{viewModel.autoOff}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView"
+            app:layout_constraintVertical_bias="0.0" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
+

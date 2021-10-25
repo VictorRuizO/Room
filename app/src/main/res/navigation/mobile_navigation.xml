@@ -6,17 +6,17 @@
     app:startDestination="@id/roomFragment">
     <fragment
         android:id="@+id/roomFragment"
-        android:name="com.victor.co.room.ui.RoomFragment"
+        android:name="com.victor.co.room.ui.room.RoomFragment"
         android:label="Room"
         tools:layout="@layout/fragment_room"/>
     <fragment
         android:id="@+id/bedFragment"
-        android:name="com.victor.co.room.ui.BedFragment"
+        android:name="com.victor.co.room.ui.bed.BedFragment"
         android:label="fragment_bed"
         tools:layout="@layout/fragment_bed" />
     <fragment
         android:id="@+id/deskFragment"
-        android:name="com.victor.co.room.ui.DeskFragment"
+        android:name="com.victor.co.room.ui.desk.DeskFragment"
         android:label="fragment_desk"
         tools:layout="@layout/fragment_desk" />
 </navigation>
