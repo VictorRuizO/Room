@@ -34,21 +34,22 @@
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:src="@drawable/ic_sync_disabled_24dp"
+        android:onClick="@{()->viewModel.onClickSync()}"
         app:layout_constraintBottom_toBottomOf="@+id/onOff"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.05"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/onOff" />
 
-    <com.larswerkman.holocolorpicker.ColorPicker
-        android:id="@+id/colorPicker"
-        android:layout_width="250dp"
-        android:layout_height="250dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        <com.larswerkman.holocolorpicker.ColorPicker
+            android:id="@+id/colorPicker"
+            android:layout_width="250dp"
+            android:layout_height="250dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
 
         <ImageButton
             android:id="@+id/buttonWhite"
@@ -114,17 +115,18 @@
         app:layout_constraintTop_toBottomOf="@+id/buttonWhite"
         app:layout_constraintVertical_bias="0.100000024" />
 
-    <SeekBar
-        android:id="@+id/seekBarBright"
-        android:layout_width="0dp"
-        android:layout_height="30dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        app:layout_constraintBottom_toBottomOf="@+id/imageLigthLess"
-        app:layout_constraintEnd_toStartOf="@id/imageLigthMax"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@id/imageLigthLess"
-        app:layout_constraintTop_toTopOf="@+id/imageLigthLess" />
+        <SeekBar
+            android:id="@+id/seekBarBright"
+            android:layout_width="0dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:progress="@{viewModel.bright}"
+            app:layout_constraintBottom_toBottomOf="@+id/imageLigthLess"
+            app:layout_constraintEnd_toStartOf="@id/imageLigthMax"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@id/imageLigthLess"
+            app:layout_constraintTop_toTopOf="@+id/imageLigthLess" />
 
     <ImageView
         android:id="@+id/imageLigthMax"
@@ -154,6 +156,7 @@
         android:layout_height="30dp"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
+        android:progress="@{viewModel.velocity}"
         app:layout_constraintBottom_toBottomOf="@+id/imageVelDown"
         app:layout_constraintEnd_toStartOf="@id/imageVelUp"
         app:layout_constraintStart_toEndOf="@id/imageVelDown"
@@ -310,6 +313,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:text="Always"
+        android:checked="@{viewModel.autoOffAlways}"
         app:layout_constraintBottom_toBottomOf="@+id/buttonHourPicker"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"

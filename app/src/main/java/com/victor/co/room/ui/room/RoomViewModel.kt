@@ -47,4 +47,8 @@ class RoomViewModel : ViewModel() {
         Log.d("fragment",autoOffHour.value!!)
         Log.d("autooff", autoOff.value.toString())
     }
+
+    fun onClickSync(){
+
+    }
 }
